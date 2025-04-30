@@ -5,10 +5,10 @@ import express from "express";
 const app = express();
 const server = http.createServer(app);
 
-const allowedOrigins =
-  process.env.NODE_ENV === "production"
-    ? ["http://frontend:3000"]
-    : ["http://localhost:3000"];
+const allowedOrigins = [
+  "http://localhost:3000", // cho local dev
+  "http://frontend:3000", // cho container gọi container (nếu có)
+];
 
 const io = new Server(server, {
   cors: {
